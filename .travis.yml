@@ -9,14 +9,21 @@ language: python
 services:
 
 before_install:
+    # installing terraform
     - wget https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip
     - unzip terraform_0.11.1_linux_amd64.zip
     - mkdir -p $BIN_DIR
     - mv terraform $BIN_DIR/
     - export PATH=$PATH:$BIN_DIR
     - rm -f terraform_0.11.1_linux_amd64.zip
+    
 #    - docker-compose up -d
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
 
 script:
-    - terraform --version
+    - set -ex && \
+        cd terraform && \
+        terraform init && \
+        terraform plan && \
+      #  terraform apply -auto-approve && \
+        cd ..
