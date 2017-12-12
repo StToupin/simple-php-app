@@ -20,5 +20,8 @@ before_install:
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
 
 script:
-    - set -ex && cd terraform && terraform init && terraform plan && cd ..
-    #  terraform apply -auto-approve
+    - cd terraform
+    - terraform init
+    - terraform plan
+    - terraform apply -auto-approve
+    - cd ..
