@@ -4,7 +4,7 @@ services:
   app:
     build: .
     environment:
-      DBHOST: db:3306
+      DBHOST: $DBHOST:3306
       DATABASE: training42
       DBUSER: duoquadra
       DBPASSWORD: crimson42
