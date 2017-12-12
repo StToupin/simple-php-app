@@ -1,3 +1,7 @@
+env:
+    global:
+    - BIN_DIR=$HOME/bin
+
 sudo: required
 
 language: python
@@ -7,7 +11,10 @@ services:
 before_install:
     - wget https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip
     - unzip terraform_0.11.1_linux_amd64.zip
-    - alias terraform="$PWD/terraform"
+    - mkdir -p $BIN_DIR
+    - mv terraform $BIN_DIR/
+    - export PATH=$PATH:$BIN_DIR
+    - rm -f terraform_0.11.1_linux_amd64.zip
 #    - docker-compose up -d
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
 
