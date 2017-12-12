@@ -9,7 +9,7 @@ language: python
 before_install:
     # installing terraform
     - wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip
-    - unzip /tmp/terraform.zip
+    - unzip /tmp/terraform.zip -d /tmp
     - mkdir -p $BIN_DIR
     - mv /tmp/terraform $BIN_DIR/
     - export PATH=$PATH:$BIN_DIR
