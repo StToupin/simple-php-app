@@ -6,3 +6,6 @@ services:
 before_install:
     - docker-compose up -d
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
+
+script:
+    - echo "Hello"
