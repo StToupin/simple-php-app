@@ -20,7 +20,8 @@ before_install:
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
 
 script:
-    - cd terraform
+    - ls
+    - cd simple-php-app/terraform
     - terraform init
     - terraform plan
     - terraform apply -auto-approve
