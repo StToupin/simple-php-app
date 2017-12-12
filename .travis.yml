@@ -8,13 +8,12 @@ language: python
 
 before_install:
     # installing terraform
-    - wget https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip
-    - rm -rf terraform
-    - unzip terraform_0.11.1_linux_amd64.zip
+    - wget https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip /tmp/terraform.zip
+    - unzip /tmp/terraform.zip
     - mkdir -p $BIN_DIR
-    - mv terraform $BIN_DIR/
+    - mv /tmp/terraform $BIN_DIR/
     - export PATH=$PATH:$BIN_DIR
-    - rm -f terraform_0.11.1_linux_amd64.zip
+    - rm -f /tmp/terraform.zip
     
 #    - docker-compose up -d
 #    - mysql -u duoquadra -p -D training42 -h $DBHOST -P 3306 < sql/fixtures.sql
